@@ -130,4 +130,51 @@
 
 </div>
 
-        
+<!-- Passengers and Cabin Class -->
+<div class="row mb-3">
+
+    <div class="col-md-6">
+        <label> Passengers </label>
+        <div class="card p-2" id="passengerBox">
+
+            <div class="d-flex justify-content-between mb-2">
+                <span> Adults </span>
+                <div>
+                    <button type="button" class="btn btn-outline-secondary" id="adultMinus"> - </button>
+                    <span id="adultCount"> 1 </span>
+                    <button type="button" class="btn btn-outline-secondary" id="adultPlus"> + </button>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mb-2">
+                <span> Children </span>
+                <div>
+                    <button type="button" class="btn btn-outline-secondary" id="childMinus"> - </button>
+                    <span id="childCount"> 0 </span>
+                    <button type="button" class="btn btn-outline-secondary" id="childPlus"> + </button>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <span> Infants </span>
+                <div>
+                    <button type="button" class="btn btn-outline-secondary" id="infantMinus"> - </button>
+                    <span id="infantCount"> 0 </span>
+                    <button type="button" class="btn btn-outline-secondary" id="infantPlus"> + </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label> Cabin Class </label>
+        <select class="form-select" id="cabinClass">
+            <option value="Economy"> Economy </option>
+            <option value="Premium Economy"> Premium Economy </option>
+            <option value="Business"> Business </option>
+            <option value="First Class"> First Class </option>
+        </select>
+    </div>
+
+</div>

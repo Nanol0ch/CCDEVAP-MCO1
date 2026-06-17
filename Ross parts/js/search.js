@@ -114,7 +114,15 @@ $(document).ready(function() {
         }
 
         if (valid == true) {
-    $("#resultsSection").show();
+            $("#searchSpinner").removeClass("d-none");
+            $("#searchBtnText").text("Searching...");
+            $("#searchBtn").prop("disabled", true);
+
+            setTimeout(function() {
+                $("#searchSpinner").addClass("d-none");
+                $("#searchBtnText").text("Search Flights");
+                $("#searchBtn").prop("disabled", false);
+                $("#resultsSection").show();
 
     // Apply advanced search filters
     var filtered = flights.slice();
@@ -157,8 +165,8 @@ $(document).ready(function() {
             $("#toastMessage").text("Flights loaded successfully!");
             $("#searchToast").addClass("bg-success");
             toast.show();
+            }, 1000);
         }
-
     });
 
     // Sort Flights
@@ -282,6 +290,19 @@ $(document).ready(function() {
                     show = false;
                 }
             }
+            // Preferred Airline (Advanced Search)
+            var preferred = $("#preferredAirline").val();
+            if (preferred != "") {
+                if (flight.airline != preferred) {
+                    show = false;
+                }
+            }
+
+            // Direct Only (Advanced Search)
+            var directOnly = $("#directOnly").is(":checked");
+            if (directOnly && flight.stops != 0) {
+                show = false;
+            }
 
             if (show == true) {
                 filtered.push(flight);
@@ -294,6 +315,11 @@ $(document).ready(function() {
     }
 
     $(document).on("change", ".filter-price, .filter-stops, .filter-schedule, .filter-airline", function() {
+        applyFilters();
+    });
+
+    // Advanced Search Dynamic Filter
+    $("#preferredAirline, #directOnly").change(function() {
         applyFilters();
     });
 

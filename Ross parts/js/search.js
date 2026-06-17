@@ -117,8 +117,9 @@ $(document).ready(function() {
             $("#resultsSection").show();
             renderFlights(flights);
 
-            // Generate airline filters if not already done
-            if ($("#airlineFilters").is(":empty")) {
+             // Generate airline filters
+            $("#airlineFilters").html("");
+            if (true) {
                 var airlines = [];
                 for (var i = 0; i < flights.length; i++) {
                     if (airlines.indexOf(flights[i].airline) == -1) {

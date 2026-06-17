@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Name - Home</title>
+    <title>AirRoute</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -15,7 +15,7 @@
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid px-4">
 
-        <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> Name of Company </a>
+        <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> AirRoute </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -274,7 +274,9 @@
     <div class="row g-3 mb-5">
         <div class="col-md-4">
             <div class="card h-100 shadow-sm dest-card" onclick="quickFill('Manila','Tokyo')">
-                <div class="dest-thumb">Tokyo</div>
+                <div class="dest-thumb">
+                    <img src="images/tokyo.jpg" alt="Tokyo">
+                </div>
                 <div class="card-body text-center">
                     <h5 class="card-title mb-1">Tokyo</h5>
                     <p class="text-muted small mb-1">MNL to TYO</p>
@@ -331,16 +333,16 @@ const airports = [
 ];
 
 const flights = [
-    { id:1,  airline:'Philippine Airlines', num:'PR 502', from:'MNL', to:'NRT', fromCity:'Manila', toCity:'Tokyo',       dep:'08:00', arr:'13:30', dur:'5h 30m',  stops:0, price:9999,  seats:4,  region:'asia'        },
-    { id:2,  airline:'Cebu Pacific',        num:'5J 822', from:'MNL', to:'SIN', fromCity:'Manila', toCity:'Singapore',   dep:'10:15', arr:'13:45', dur:'3h 30m',  stops:0, price:4299,  seats:12, region:'asia'        },
-    { id:3,  airline:'Emirates',            num:'EK 389', from:'MNL', to:'DXB', fromCity:'Manila', toCity:'Dubai',       dep:'22:00', arr:'04:00', dur:'9h 00m',  stops:0, price:14500, seats:6,  region:'middle-east' },
-    { id:4,  airline:'Qatar Airways',       num:'QR 927', from:'MNL', to:'CDG', fromCity:'Manila', toCity:'Paris',       dep:'23:30', arr:'15:20', dur:'16h 50m', stops:1, price:29999, seats:3,  region:'europe'      },
-    { id:5,  airline:'Philippine Airlines', num:'PR 104', from:'MNL', to:'LAX', fromCity:'Manila', toCity:'Los Angeles', dep:'09:45', arr:'06:10', dur:'13h 25m', stops:0, price:38000, seats:8,  region:'asia'        },
-    { id:6,  airline:'Cebu Pacific',        num:'5J 111', from:'MNL', to:'HKG', fromCity:'Manila', toCity:'Hong Kong',   dep:'06:20', arr:'08:40', dur:'2h 20m',  stops:0, price:3499,  seats:20, region:'asia'        },
-    { id:7,  airline:'Emirates',            num:'EK 382', from:'MNL', to:'LHR', fromCity:'Manila', toCity:'London',      dep:'21:15', arr:'10:30', dur:'15h 15m', stops:1, price:42000, seats:2,  region:'europe'      },
-    { id:8,  airline:'Qatar Airways',       num:'QR 931', from:'MNL', to:'DOH', fromCity:'Manila', toCity:'Doha',        dep:'01:00', arr:'06:30', dur:'8h 30m',  stops:0, price:11200, seats:15, region:'middle-east' },
-    { id:9,  airline:'Cebu Pacific',        num:'5J 491', from:'MNL', to:'DPS', fromCity:'Manila', toCity:'Bali',        dep:'07:00', arr:'10:55', dur:'3h 55m',  stops:0, price:5499,  seats:9,  region:'asia'        },
-    { id:10, airline:'Philippine Airlines', num:'PR 520', from:'MNL', to:'SYD', fromCity:'Manila', toCity:'Sydney',      dep:'17:50', arr:'06:20', dur:'8h 30m',  stops:0, price:18000, seats:5,  region:'asia'        }
+    { id:1,  airline:'Philippine Airlines', num:'PR 101', from:'MNL', to:'SIN', fromCity:'Manila',     toCity:'Singapore', dep:'06:00', arr:'09:45', dur:'3h 45m',  stops:0, price:4500,  seats:12, region:'asia'        },
+    { id:2,  airline:'Cebu Pacific',        num:'5J 210', from:'MNL', to:'HKG', fromCity:'Manila',     toCity:'Hong Kong', dep:'08:30', arr:'11:10', dur:'2h 40m',  stops:0, price:3200,  seats:5,  region:'asia'        },
+    { id:3,  airline:'AirAsia',             num:'Z2 305', from:'CEB', to:'SIN', fromCity:'Cebu',       toCity:'Singapore', dep:'13:15', arr:'17:00', dur:'3h 45m',  stops:1, price:6800,  seats:20, region:'asia'        },
+    { id:4,  airline:'Qatar Airways',       num:'QR 928', from:'MNL', to:'DXB', fromCity:'Manila',     toCity:'Dubai',     dep:'22:00', arr:'04:30', dur:'9h 30m',  stops:1, price:18500, seats:8,  region:'middle-east' },
+    { id:5,  airline:'Emirates',            num:'EK 333', from:'MNL', to:'DXB', fromCity:'Manila',     toCity:'Dubai',     dep:'01:00', arr:'06:15', dur:'9h 15m',  stops:0, price:22000, seats:3,  region:'middle-east' },
+    { id:6,  airline:'Philippine Airlines', num:'PR 504', from:'MNL', to:'NRT', fromCity:'Manila',     toCity:'Tokyo',     dep:'10:00', arr:'15:30', dur:'4h 30m',  stops:0, price:12000, seats:15, region:'asia'        },
+    { id:7,  airline:'Cebu Pacific',        num:'5J 820', from:'DVO', to:'MNL', fromCity:'Davao',      toCity:'Manila',    dep:'07:45', arr:'09:15', dur:'1h 30m',  stops:0, price:2100,  seats:30, region:'asia'        },
+    { id:8,  airline:'AirAsia',             num:'Z2 614', from:'MNL', to:'SYD', fromCity:'Manila',     toCity:'Sydney',    dep:'15:00', arr:'06:30', dur:'8h 30m',  stops:1, price:15000, seats:10, region:'asia'        },
+    { id:9,  airline:'Emirates',            num:'EK 219', from:'MNL', to:'DXB', fromCity:'Manila',     toCity:'Dubai',     dep:'19:30', arr:'01:00', dur:'9h 30m',  stops:0, price:35000, seats:2,  region:'middle-east' },
+    { id:10, airline:'Qatar Airways',       num:'QR 412', from:'CEB', to:'HKG', fromCity:'Cebu',       toCity:'Hong Kong', dep:'11:00', arr:'13:30', dur:'2h 30m',  stops:0, price:7500,  seats:18, region:'asia'        }
 ];
 
 function renderFlights(data) {

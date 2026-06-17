@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="search.css">
 
     <style>
-    .px-4 {
-        padding-left: 30px !important;
-        padding-right: 30px !important;
+    #mainContent {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 </style>
 
@@ -68,7 +68,7 @@
     </div>
 
         <!-- Main Content -->
-         <div class="px-4 my-4"></div>
+         <div id="mainContent" class="my-4">
 
     <!-- Search Form -->
     <div class="card mb-4">
@@ -77,10 +77,10 @@
             <h5> Search Flights </h5>
 
             <!-- Trip Type Toggle -->
-             <div class="mb-3" id="tripToggle"></div>
-                <button type="button" class="btn btn-outline-primary" id="oneWayBtn"> One Way </button>
-                <button type="button" class="btn btn-primary" id="roundTripBtn"> Round Trip </button>
-            </div>
+             <div class="mb-3" id="tripToggle">
+    <button type="button" class="btn btn-outline-primary" id="oneWayBtn"> One Way </button>
+    <button type="button" class="btn btn-primary" id="roundTripBtn"> Round Trip </button>
+</div>
 
              <!-- Origin and Destination -->
               <div class="row mb-3">
@@ -345,6 +345,8 @@
         </div>
 
     </div>
+
+</div>
 
 
 <!-- Flight Details Modal -->

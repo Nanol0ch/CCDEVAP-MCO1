@@ -100,9 +100,45 @@ $(document).ready(function() {
             $("#departureDateError").hide();
         }
 
+        var returnDate = $("#returnDate").val();
+        var isRoundTrip = $("#returnDateSection").is(":visible");
+
+        if (isRoundTrip && returnDate == "") {
+            $("#returnDateError").show();
+            valid = false;
+        } else if (isRoundTrip && returnDate <= departureDate) {
+            $("#returnDateError").show();
+            valid = false;
+        } else {
+            $("#returnDateError").hide();
+        }
+
         if (valid == true) {
             $("#resultsSection").show();
             renderFlights(flights);
+
+            // Generate airline filters if not already done
+            if ($("#airlineFilters").is(":empty")) {
+                var airlines = [];
+                for (var i = 0; i < flights.length; i++) {
+                    if (airlines.indexOf(flights[i].airline) == -1) {
+                        airlines.push(flights[i].airline);
+                    }
+                }
+                for (var i = 0; i < airlines.length; i++) {
+                    $("#airlineFilters").append(
+                        "<div class='form-check'>" +
+                        "<input class='form-check-input filter-airline' type='checkbox' value='" + airlines[i] + "' id='airline" + i + "'>" +
+                        "<label class='form-check-label' for='airline" + i + "'> " + airlines[i] + " </label>" +
+                        "</div>"
+                    );
+                }
+            }
+
+            var toast = new bootstrap.Toast(document.getElementById("searchToast"));
+            $("#toastMessage").text("Flights loaded successfully!");
+            $("#searchToast").addClass("bg-success");
+            toast.show();
         }
 
     });
@@ -144,6 +180,7 @@ $(document).ready(function() {
             var flight = flights[i];
             var show = true;
 
+            // Price Filter
             var selectedPrices = [];
             $(".filter-price:checked").each(function() {
                 selectedPrices.push($(this).val());
@@ -192,6 +229,25 @@ $(document).ready(function() {
                 }
             }
 
+            // Airline Filter
+            var selectedAirlines = [];
+            $(".filter-airline:checked").each(function() {
+                selectedAirlines.push($(this).val());
+            });
+
+            if (selectedAirlines.length > 0) {
+                var inAirline = false;
+                for (var n = 0; n < selectedAirlines.length; n++) {
+                    if (flight.airline == selectedAirlines[n]) {
+                        inAirline = true;
+                    }
+                }
+                if (inAirline == false) {
+                    show = false;
+                }
+            }
+
+            // Stops Filter
             var selectedStops = [];
             $(".filter-stops:checked").each(function() {
                 selectedStops.push(parseInt($(this).val()));
@@ -219,7 +275,7 @@ $(document).ready(function() {
 
     }
 
-    $(".filter-price, .filter-stops, .filter-schedule").change(function() {
+    $(document).on("change", ".filter-price, .filter-stops, .filter-schedule, .filter-airline", function() {
         applyFilters();
     });
 
@@ -255,7 +311,7 @@ $(document).ready(function() {
 
     // Clear Filters
     $("#clearFiltersBtn, #resetFiltersBtn").click(function() {
-        $(".filter-price, .filter-stops, .filter-schedule").prop("checked", false);
+        $(".filter-price, .filter-stops, .filter-schedule, .filter-airline").prop("checked", false);
         renderFlights(flights);
     });
 
@@ -280,7 +336,10 @@ function renderFlights(flightList) {
 
         var card = "<div class='card mb-3'>" +
             "<div class='card-body'>" +
-            "<h5><span class='badge bg-primary'>" + flight.airline + "</span> " + flight.flightNumber + "</h5>" +
+            "<div class='d-flex align-items-center mb-2'>" +
+            "<i class='bi bi-airplane-fill fs-3 me-2 text-primary'></i>" +
+            "<h5 class='mb-0'><span class='badge bg-primary'>" + flight.airline + "</span> " + flight.flightNumber + "</h5>" +
+            "</div>" +
             "<p>" + flight.origin + " → " + flight.destination + "</p>" +
             "<p> Departure: " + flight.departure + " | Arrival: " + flight.arrival + "</p>" +
             "<p> Duration: " + flight.duration + " | Stops: " + flight.stops + "</p>" +

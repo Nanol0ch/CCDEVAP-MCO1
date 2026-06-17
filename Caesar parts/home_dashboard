@@ -119,58 +119,6 @@
                     <input type="date" class="form-control" id="returnDate">
                 </div>
 
-                <div class="col-md-2">
-                    <label class="form-label fw-semibold small">Passengers &amp; Class</label>
-                    <div class="position-relative">
-                        <input type="text" class="form-control" id="paxInput" value="1 Adult - Economy" readonly style="cursor:pointer;">
-                        <div class="card shadow p-3 pax-dropdown" id="paxDropdown">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div>
-                                    <div class="fw-semibold small">Adults</div>
-                                    <div class="text-muted small">12+ years</div>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <button class="btn btn-sm btn-outline-secondary" onclick="adjustPax('adults',-1)">-</button>
-                                    <span id="paxAdults" class="fw-bold">1</span>
-                                    <button class="btn btn-sm btn-outline-secondary" onclick="adjustPax('adults',1)">+</button>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div>
-                                    <div class="fw-semibold small">Children</div>
-                                    <div class="text-muted small">2-11 years</div>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <button class="btn btn-sm btn-outline-secondary" onclick="adjustPax('children',-1)">-</button>
-                                    <span id="paxChildren" class="fw-bold">0</span>
-                                    <button class="btn btn-sm btn-outline-secondary" onclick="adjustPax('children',1)">+</button>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div>
-                                    <div class="fw-semibold small">Infants</div>
-                                    <div class="text-muted small">Under 2</div>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <button class="btn btn-sm btn-outline-secondary" onclick="adjustPax('infants',-1)">-</button>
-                                    <span id="paxInfants" class="fw-bold">0</span>
-                                    <button class="btn btn-sm btn-outline-secondary" onclick="adjustPax('infants',1)">+</button>
-                                </div>
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label small fw-semibold">Cabin Class</label>
-                                <select class="form-select form-select-sm" id="cabinSelect">
-                                    <option>Economy</option>
-                                    <option>Premium Economy</option>
-                                    <option>Business</option>
-                                    <option>First Class</option>
-                                </select>
-                            </div>
-                            <button class="btn btn-primary btn-sm w-100" onclick="closePaxDropdown()">Done</button>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-md-auto">
                     <button class="btn btn-warning fw-bold px-4" onclick="doSearch()">Search</button>
                 </div>

@@ -381,7 +381,7 @@ function renderFlights(flightList) {
         var card = "<div class='card mb-3'>" +
             "<div class='card-body'>" +
             "<div class='d-flex align-items-center mb-2'>" +
-            "<i class='bi bi-airplane-fill fs-3 me-2 text-primary'></i>" +
+            "<img src='" + getAirlineLogo(flight.airline) + "' style='width:40px; height:40px; object-fit:contain; margin-right:10px;'>" +
             "<h5 class='mb-0'><span class='badge bg-primary'>" + flight.airline + "</span> " + flight.flightNumber + "</h5>" +
             "</div>" +
             "<p>" + flight.origin + " → " + flight.destination + "</p>" +
@@ -394,6 +394,8 @@ function renderFlights(flightList) {
             "</div>";
 
         $("#flightResults").append(card);
+    }
+}
 
         // Airline Logo Helper
     function getAirlineLogo(airline) {
@@ -405,6 +407,3 @@ function renderFlights(flightList) {
     return "img/default.png";
     }
 
- }
-
-}

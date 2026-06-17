@@ -1,6 +1,5 @@
 /* ================================================
-   style.css — SkyPath Airlines Custom Styles
-   (Bootstrap handles the rest)
+   style.css — AirRoute Airlines Custom Styles
 ================================================ */
 
 /* Active nav link underline */
@@ -11,7 +10,7 @@
 
 /* Hero section */
 .hero-section {
-  background-color: #1a1a2e;
+  background-color: #0d6efd;
   color: #fff;
   padding: 60px 0 80px;
 }
@@ -29,7 +28,7 @@
   font-size: 1.2rem;
 }
 
-/* Seat badge colors */
+/* Seat badge colors*/
 .badge-low { background-color: #dc3545; }
 .badge-ok  { background-color: #198754; }
 

@@ -238,7 +238,7 @@ function renderFlights(flightList) {
 
         var card = "<div class='card mb-3'>" +
             "<div class='card-body'>" +
-            "<h5>" + flight.airline + " - " + flight.flightNumber + "</h5>" +
+            "<h5><span class='badge bg-primary'>" + flight.airline + "</span> " + flight.flightNumber + "</h5>" +
             "<p>" + flight.origin + " → " + flight.destination + "</p>" +
             "<p> Departure: " + flight.departure + " | Arrival: " + flight.arrival + "</p>" +
             "<p> Duration: " + flight.duration + " | Stops: " + flight.stops + "</p>" +

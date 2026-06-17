@@ -3,23 +3,22 @@ $(document).ready(function() {
     // Trip Type Toggle
     $("#oneWayBtn").click(function() {
         $("#returnDateSection").hide();
+        $("#oneWayBtn").css("background-color", "#0d6efd");
+        $("#oneWayBtn").css("color", "white");
+        $("#oneWayBtn").css("border-color", "#0d6efd");
+        $("#roundTripBtn").css("background-color", "transparent");
+        $("#roundTripBtn").css("color", "#0d6efd");
+        $("#roundTripBtn").css("border-color", "#0d6efd");
     });
 
     $("#roundTripBtn").click(function() {
         $("#returnDateSection").show();
-    });
-
-    // Passenger Counters
-    $("#adultPlus").click(function() {
-        var count = parseInt($("#adultCount").text());
-        $("#adultCount").text(count + 1);
-    });
-
-    $("#adultMinus").click(function() {
-        var count = parseInt($("#adultCount").text());
-        if (count > 1) {
-            $("#adultCount").text(count - 1);
-        }
+        $("#roundTripBtn").css("background-color", "#0d6efd");
+        $("#roundTripBtn").css("color", "white");
+        $("#roundTripBtn").css("border-color", "#0d6efd");
+        $("#oneWayBtn").css("background-color", "transparent");
+        $("#oneWayBtn").css("color", "#0d6efd");
+        $("#oneWayBtn").css("border-color", "#0d6efd");
     });
 
     $("#childPlus").click(function() {

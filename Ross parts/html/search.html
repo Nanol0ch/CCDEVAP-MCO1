@@ -14,6 +14,15 @@
         padding-left: 50px;
         padding-right: 50px;
     }
+
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
 </style>
 
 </head>
@@ -239,7 +248,10 @@
 </div>
 
 <!-- Search Button -->
-<button type="button" class="btn btn-primary w-100" id="searchBtn"> Search Flights </button>
+<button type="button" class="btn btn-primary w-100" id="searchBtn">
+    <span id="searchSpinner" class="spinner-border spinner-border-sm me-2 d-none"></span>
+    <span id="searchBtnText"> Search Flights </span>
+</button>
 
         </div>
     </div>

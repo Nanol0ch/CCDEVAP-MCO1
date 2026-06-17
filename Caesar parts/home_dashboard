@@ -11,47 +11,55 @@
 
 <body class="bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Website Name</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+    <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid px-4">
+
+        <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> Name of Company </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="search.html">Search Flights</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="booking.html">Book Flight</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="reservations.html">My Reservations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin-dashboard.html">Admin</a>
-                </li>
-            </ul>
-            <div class="dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
-                    James L..
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><span class="dropdown-item-text small text-muted">james.lastname@email.com</span></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-                </ul>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="search.html"> Search Flights </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html"> Book Flight </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservations.html"> My Reservations </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"> User Profile </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-dashboard.html"> Admin Panel </a>
+                    </li>
+                    </ul>
+
+                    <!-- User Dropdown -->
+                    <ul class="navbar-nav ms-auto me-2">
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Roshni </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                    <li> <a class="dropdown-item" href="profile.html"> Profile </a> </li>
+                    <li> <a class="dropdown-item" href="#"> Settings </a> </li>
+                    <li> <hr class="dropdown-divider"> </li>
+                    <li> <a class="dropdown-item" href="#"> Logout </a> </li>
+                    </ul>
+                    </li>
+                    </ul>
+                    </ul>
+
             </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
 
 <!-- Hero Banner -->
 <div class="bg-dark text-white py-5 mb-0">

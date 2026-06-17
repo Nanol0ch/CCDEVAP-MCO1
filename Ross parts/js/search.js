@@ -21,6 +21,19 @@ $(document).ready(function() {
         $("#oneWayBtn").css("border-color", "#0d6efd");
     });
 
+    // Passenger Counters
+    $("#adultPlus").click(function() {
+        var count = parseInt($("#adultCount").text());
+        $("#adultCount").text(count + 1);
+    });
+
+    $("#adultMinus").click(function() {
+        var count = parseInt($("#adultCount").text());
+        if (count > 1) {
+            $("#adultCount").text(count - 1);
+        }
+    });
+
     $("#childPlus").click(function() {
         var count = parseInt($("#childCount").text());
         $("#childCount").text(count + 1);
@@ -145,6 +158,36 @@ $(document).ready(function() {
                     }
                 }
                 if (inPrice == false) {
+                    show = false;
+                }
+            }
+
+            // Schedule Filter
+            var selectedSchedules = [];
+            $(".filter-schedule:checked").each(function() {
+                selectedSchedules.push($(this).val());
+            });
+
+            if (selectedSchedules.length > 0) {
+                var inSchedule = false;
+                var hour = parseInt(flight.departure.split(":")[0]);
+
+                for (var m = 0; m < selectedSchedules.length; m++) {
+                    if (selectedSchedules[m] == "morning" && hour >= 5 && hour < 12) {
+                        inSchedule = true;
+                    }
+                    if (selectedSchedules[m] == "afternoon" && hour >= 12 && hour < 18) {
+                        inSchedule = true;
+                    }
+                    if (selectedSchedules[m] == "evening" && hour >= 18 && hour < 24) {
+                        inSchedule = true;
+                    }
+                    if (selectedSchedules[m] == "night" && hour >= 0 && hour < 5) {
+                        inSchedule = true;
+                    }
+                }
+
+                if (inSchedule == false) {
                     show = false;
                 }
             }

@@ -114,12 +114,29 @@ $(document).ready(function() {
         }
 
         if (valid == true) {
-            $("#resultsSection").show();
-            renderFlights(flights);
+    $("#resultsSection").show();
 
-             // Generate airline filters
-            $("#airlineFilters").html("");
-            if (true) {
+    // Apply advanced search filters
+    var filtered = flights.slice();
+
+    var preferred = $("#preferredAirline").val();
+    if (preferred != "") {
+        filtered = filtered.filter(function(f) {
+            return f.airline == preferred;
+        });
+    }
+
+    var directOnly = $("#directOnly").is(":checked");
+    if (directOnly) {
+        filtered = filtered.filter(function(f) {
+            return f.stops == 0;
+        });
+    }
+
+    renderFlights(filtered);
+
+            // Generate airline filters if not already done
+            if ($("#airlineFilters").is(":empty")) {
                 var airlines = [];
                 for (var i = 0; i < flights.length; i++) {
                     if (airlines.indexOf(flights[i].airline) == -1) {

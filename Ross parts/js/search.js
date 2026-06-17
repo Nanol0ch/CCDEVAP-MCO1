@@ -395,6 +395,16 @@ function renderFlights(flightList) {
 
         $("#flightResults").append(card);
 
+        // Airline Logo Helper
+    function getAirlineLogo(airline) {
+    if (airline == "Philippine Airlines") return "img/pal.png";
+    if (airline == "Cebu Pacific") return "img/cebupacific.png";
+    if (airline == "AirAsia") return "img/airasia.png";
+    if (airline == "Qatar Airways") return "img/qatar.png";
+    if (airline == "Emirates") return "img/emirates.png";
+    return "img/default.png";
     }
+
+ }
 
 }

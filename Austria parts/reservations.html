@@ -8,9 +8,7 @@
 </head>
 <body class="bg-light">
     
-<!-- Navbar from roshni -->
-
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid px-4">
             <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> AirRoute </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -18,57 +16,25 @@
             </button>
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link"> Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="search.html"> Search Flights </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="booking.html"> Book Flight </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="reservations.html"> My Reservations </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.html"> User Profile </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Admin Panel </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="admin-dashboard.html"> Dashboard </a></li>
-                            <li><a class="dropdown-item" href="admin-flights.html"> Flight Management </a></li>
-                            <li><a class="dropdown-item" href="admin-users.html"> User Management </a></li>
-                            <li><a class="dropdown-item" href="admin-reservations.html"> Reservations </a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- User Dropdown -->
-                <ul class="navbar-nav ms-auto me-2">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Roshni </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li> <a class="dropdown-item" href="profile.html"> Profile </a> </li>
-                            <li> <a class="dropdown-item" href="#"> Settings </a> </li>
-                            <li> <hr class="dropdown-divider"> </li>
-                            <li> <a class="dropdown-item" href="#"> Logout </a> </li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link"> Home </a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.html"> Search Flights </a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html"> Book Flight </a></li>
+                    <li class="nav-item"><a class="nav-link active" href="reservations.html"> My Reservations </a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"> User Profile </a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Page Title -->
-<div class="bg-primary text-white py-4" style="padding-left: 50px; padding-right: 50px;">
-    <h2>My Booking Reservations</h2>
-</div>
+    <div class="bg-primary text-white py-4" style="padding-left: 50px; padding-right: 50px;">
+        <h2>My Booking Reservations</h2>
+    </div>
 
     <div class="container mt-4">
         <h2>Here you can check or cancel your flights</h2>
 
         <div class="row my-3">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <input type="text" id="myInputSearch" class="form-control" placeholder="Type booking code here...">
             </div>
             <div class="col-md-4">
@@ -78,48 +44,42 @@
                     <option value="Cancelled">Cancelled Only</option>
                 </select>
             </div>
-        </div>
-
-        <div class="card p-3 mb-3 flight-item-card" id="card-BK101" data-status="Confirmed" data-code="BK101">
-            <div class="row align-items-center">
-                <div class="col-md-2">
-                    Code: <strong class="the-code">BK101</strong>
-                </div>
-                <div class="col-md-3">
-                    Manila to Singapore<br>
-                    <small>Date: June 24, 2026</small>
-                </div>
-                <div class="col-md-2">
-                    Seat: <span class="seat-badge">1A</span>
-                </div>
-                <div class="col-md-2">
-                    <span class="badge bg-success status-text">Confirmed</span>
-                </div>
-                <div class="col-md-3 text-end">
-                    <button class="btn btn-sm btn-primary edit-seat-btn" data-id="BK101" data-seat="1A">Change Seat</button>
-                    <button class="btn btn-sm btn-danger cancel-booking-btn" data-id="BK101">Cancel Flight</button>
-                </div>
+            <div class="col-md-4">
+                <select id="sortDropdown" class="form-select">
+                    <option value="">Sort by...</option>
+                    <option value="code">Booking Code</option>
+                    <option value="date">Date</option>
+                    <option value="status">Status</option>
+                </select>
             </div>
         </div>
 
-        <div class="card p-3 mb-3 flight-item-card" id="card-BK102" data-status="Cancelled" data-code="BK102">
-            <div class="row align-items-center">
-                <div class="col-md-2">
-                    Code: <strong class="the-code">BK102</strong>
+        <div id="reservationContainer">
+            <div class="card p-3 mb-3 flight-item-card" id="card-BK101" data-status="Confirmed" data-code="BK101" data-date="2026-06-24" data-passenger="Roshni">
+                <div class="row align-items-center">
+                    <div class="col-md-2">Code: <strong class="the-code">BK101</strong></div>
+                    <div class="col-md-3">Manila to Singapore<br><small>Date: June 24, 2026</small></div>
+                    <div class="col-md-2">Seat: <span class="seat-badge">1A</span></div>
+                    <div class="col-md-2"><span class="badge bg-success status-text">Confirmed</span></div>
+                    <div class="col-md-3 text-end">
+                        <button class="btn btn-sm btn-info view-details-btn">Details</button>
+                        <button class="btn btn-sm btn-primary edit-seat-btn" data-id="BK101" data-seat="1A">Change Seat</button>
+                        <button class="btn btn-sm btn-danger cancel-booking-btn" data-id="BK101">Cancel Flight</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    Manila to Cebu<br>
-                    <small>Date: July 02, 2026</small>
-                </div>
-                <div class="col-md-2">
-                    Seat: <span class="seat-badge">2B</span>
-                </div>
-                <div class="col-md-2">
-                    <span class="badge bg-danger status-text">Cancelled</span>
-                </div>
-                <div class="col-md-3 text-end">
-                    <button class="btn btn-sm btn-primary edit-seat-btn disabled" data-id="BK102" data-seat="2B">Change Seat</button>
-                    <button class="btn btn-sm btn-danger cancel-booking-btn disabled" data-id="BK102">Cancel Flight</button>
+            </div>
+
+            <div class="card p-3 mb-3 flight-item-card" id="card-BK102" data-status="Cancelled" data-code="BK102" data-date="2026-07-02" data-passenger="Juan Gomez">
+                <div class="row align-items-center">
+                    <div class="col-md-2">Code: <strong class="the-code">BK102</strong></div>
+                    <div class="col-md-3">Manila to Cebu<br><small>Date: July 02, 2026</small></div>
+                    <div class="col-md-2">Seat: <span class="seat-badge">2B</span></div>
+                    <div class="col-md-2"><span class="badge bg-danger status-text">Cancelled</span></div>
+                    <div class="col-md-3 text-end">
+                        <button class="btn btn-sm btn-info view-details-btn">Details</button>
+                        <button class="btn btn-sm btn-primary edit-seat-btn disabled" data-id="BK102" data-seat="2B">Change Seat</button>
+                        <button class="btn btn-sm btn-danger cancel-booking-btn disabled" data-id="BK102">Cancel Flight</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -129,17 +89,26 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Change Seat Number</h5>
+                    <h5 class="modal-title">Change Seat</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="savedCardId">
-                    <div class="mb-3">
-                        <label>Enter New Seat Assignment:</label>
-                        <input type="text" id="newSeatText" class="form-control" placeholder="example: 4F">
-                    </div>
+                    <input type="text" id="newSeatText" class="form-control mb-3">
                     <button type="button" id="saveSeatButton" class="btn btn-success w-100">Save New Seat</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Booking Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="detailsModalBody"></div>
             </div>
         </div>
     </div>
@@ -148,76 +117,66 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function() {
-            
+            // Sorting Logic
+            $('#sortDropdown').change(function() {
+                var sortBy = $(this).val();
+                if (!sortBy) return;
+
+                var cards = $('.flight-item-card').toArray();
+                cards.sort(function(a, b) {
+                    var valA = $(a).data(sortBy);
+                    var valB = $(b).data(sortBy);
+                    return valA.toString().localeCompare(valB.toString());
+                });
+
+                $.each(cards, function(index, card) {
+                    $('#reservationContainer').append(card);
+                });
+            });
+
+            $('.view-details-btn').click(function() {
+                var card = $(this).closest('.flight-item-card');
+                $('#detailsModalBody').html(`
+                    <p><strong>Booking Code:</strong> ${card.attr('data-code')}</p>
+                    <p><strong>Passenger Name:</strong> ${card.attr('data-passenger')}</p>
+                    <p><strong>Status:</strong> ${card.attr('data-status')}</p>
+                `);
+                new bootstrap.Modal(document.getElementById('detailsModal')).show();
+            });
+
             $('.cancel-booking-btn').click(function() {
                 var bookingId = $(this).attr('data-id');
-                var askUser = confirm("Are you sure you want to cancel " + bookingId + "?");
-                
-                if (askUser == true) {
-                    var theCard = $('#card-' + bookingId);
-                    theCard.find('.status-text').text('Cancelled').removeClass('bg-success').addClass('bg-danger');
-                    theCard.attr('data-status', 'Cancelled');
+                if (confirm("Are you sure?")) {
+                    var card = $('#card-' + bookingId);
+                    card.find('.status-text').text('Cancelled').removeClass('bg-success').addClass('bg-danger');
+                    card.attr('data-status', 'Cancelled');
                     $(this).addClass('disabled');
-                    theCard.find('.edit-seat-btn').addClass('disabled');
+                    card.find('.edit-seat-btn').addClass('disabled');
                 }
             });
 
             $('.edit-seat-btn').click(function() {
-                var bookingId = $(this).attr('data-id');
-                var currentSeat = $(this).attr('data-seat');
-                
-                $('#savedCardId').val(bookingId);
-                $('#newSeatText').val(currentSeat);
-                
-  
-                var myModal = new bootstrap.Modal(document.getElementById('seatModal'));
-                myModal.show();
+                $('#savedCardId').val($(this).attr('data-id'));
+                $('#newSeatText').val($(this).attr('data-seat'));
+                new bootstrap.Modal(document.getElementById('seatModal')).show();
             });
-
 
             $('#saveSeatButton').click(function() {
-                var bookingId = $('#savedCardId').val();
-                var freshSeat = $('#newSeatText').val().toUpperCase();
-                
-                if (freshSeat != "") {
-                    var theCard = $('#card-' + bookingId);
-                    theCard.find('.seat-badge').text(freshSeat);
-                    theCard.find('.edit-seat-btn').attr('data-seat', freshSeat);
-                    
-
-                    var openedModal = bootstrap.Modal.getInstance(document.getElementById('seatModal'));
-                    openedModal.hide();
-                    alert("Seat was changed!");
-                }
+                var id = $('#savedCardId').val();
+                var seat = $('#newSeatText').val().toUpperCase();
+                $('#card-' + id).find('.seat-badge').text(seat);
+                bootstrap.Modal.getInstance(document.getElementById('seatModal')).hide();
             });
 
-
-            $('#myStatusSelect').change(function() {
-                var chosenStatus = $(this).val();
-                
+            $('#myStatusSelect, #myInputSearch').on('change input', function() {
+                var status = $('#myStatusSelect').val();
+                var search = $('#myInputSearch').val().toLowerCase();
                 $('.flight-item-card').each(function() {
-                    var cardStatus = $(this).attr('data-status');
-                    if (chosenStatus == 'all' || cardStatus == chosenStatus) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
+                    var matchesStatus = (status == 'all' || $(this).data('status') == status);
+                    var matchesSearch = $(this).data('code').toLowerCase().indexOf(search) > -1;
+                    $(this).toggle(matchesStatus && matchesSearch);
                 });
             });
-
-            $('#myInputSearch').on('input', function() {
-                var searchVal = $(this).val().toLowerCase();
-                
-                $('.flight-item-card').each(function() {
-                    var codeText = $(this).attr('data-code').toLowerCase();
-                    if (codeText.indexOf(searchVal) > -1) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
-                });
-            });
-
         });
     </script>
 </body>

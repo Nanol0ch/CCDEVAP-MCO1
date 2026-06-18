@@ -1,5 +1,21 @@
 $(document).ready(function() {
 
+    // Read URL Parameters
+    var urlParams = new URLSearchParams(window.location.search);
+    var originParam = urlParams.get("origin");
+    var destParam = urlParams.get("destination");
+    var dateParam = urlParams.get("date");
+
+    if (originParam) {
+        $("#origin").val(originParam);
+    }
+    if (destParam) {
+        $("#destination").val(destParam);
+    }
+    if (dateParam) {
+        $("#departureDate").val(dateParam);
+    }
+
     // Trip Type Toggle
     $("#oneWayBtn").click(function() {
         $("#returnDateSection").hide();

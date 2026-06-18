@@ -55,12 +55,14 @@
         </div>
 
         <div id="reservationContainer">
-            <div class="card p-3 mb-3 flight-item-card" id="card-BK101" data-status="Confirmed" data-code="BK101" data-date="2026-06-24" data-passenger="Roshni">
+            <div class="card p-3 mb-3 flight-item-card" id="card-BK101" data-status="Confirmed" data-code="BK101" data-date="2026-06-24" data-passenger="Roshni" data-price="5,500">
                 <div class="row align-items-center">
                     <div class="col-md-2">Code: <strong class="the-code">BK101</strong></div>
-                    <div class="col-md-3">Manila to Singapore<br><small>Date: June 24, 2026</small></div>
-                    <div class="col-md-2">Seat: <span class="seat-badge">1A</span></div>
-                    <div class="col-md-2"><span class="badge bg-success status-text">Confirmed</span></div>
+                    <div class="col-md-2">Manila to Singapore<br><small>Date: June 24, 2026</small></div>
+                    <div class="col-md-1">Seat: <span class="seat-badge">1A</span></div>
+                    <div class="col-md-2">Name: <strong>Roshni</strong></div>
+                    <div class="col-md-1"><strong>₱5,500</strong></div>
+                    <div class="col-md-1"><span class="badge bg-success status-text">Confirmed</span></div>
                     <div class="col-md-3 text-end">
                         <button class="btn btn-sm btn-info view-details-btn">Details</button>
                         <button class="btn btn-sm btn-primary edit-seat-btn" data-id="BK101" data-seat="1A">Change Seat</button>
@@ -69,12 +71,14 @@
                 </div>
             </div>
 
-            <div class="card p-3 mb-3 flight-item-card" id="card-BK102" data-status="Cancelled" data-code="BK102" data-date="2026-07-02" data-passenger="Juan Gomez">
+            <div class="card p-3 mb-3 flight-item-card" id="card-BK102" data-status="Cancelled" data-code="BK102" data-date="2026-07-02" data-passenger="Juan Gomez" data-price="3,200">
                 <div class="row align-items-center">
                     <div class="col-md-2">Code: <strong class="the-code">BK102</strong></div>
-                    <div class="col-md-3">Manila to Cebu<br><small>Date: July 02, 2026</small></div>
-                    <div class="col-md-2">Seat: <span class="seat-badge">2B</span></div>
-                    <div class="col-md-2"><span class="badge bg-danger status-text">Cancelled</span></div>
+                    <div class="col-md-2">Manila to Cebu<br><small>Date: July 02, 2026</small></div>
+                    <div class="col-md-1">Seat: <span class="seat-badge">2B</span></div>
+                    <div class="col-md-2">Name: <strong>Juan Gomez</strong></div>
+                    <div class="col-md-1"><strong>₱3,200</strong></div>
+                    <div class="col-md-1"><span class="badge bg-danger status-text">Cancelled</span></div>
                     <div class="col-md-3 text-end">
                         <button class="btn btn-sm btn-info view-details-btn">Details</button>
                         <button class="btn btn-sm btn-primary edit-seat-btn disabled" data-id="BK102" data-seat="2B">Change Seat</button>
@@ -117,7 +121,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Sorting Logic
+
             $('#sortDropdown').change(function() {
                 var sortBy = $(this).val();
                 if (!sortBy) return;
@@ -140,6 +144,7 @@
                     <p><strong>Booking Code:</strong> ${card.attr('data-code')}</p>
                     <p><strong>Passenger Name:</strong> ${card.attr('data-passenger')}</p>
                     <p><strong>Status:</strong> ${card.attr('data-status')}</p>
+                    <p><strong>Total Price:</strong> ₱${card.attr('data-price')}</p>
                 `);
                 new bootstrap.Modal(document.getElementById('detailsModal')).show();
             });

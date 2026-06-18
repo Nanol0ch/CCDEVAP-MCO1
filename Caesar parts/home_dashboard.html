@@ -368,7 +368,7 @@ function filterFlights(filter, btn) {
 function bookFlight(id) {
     var f = flights.find(function(x) { return x.id === id; });
     showToast('Redirecting to book ' + f.from + ' to ' + f.to + '...', 'success');
-    setTimeout(function() { window.location.href = 'booking.html'; }, 1200);
+    setTimeout(function() { window.location.href = 'booking.html?flightId=' + id; }, 1200);
 }
 
 function setTripType(type) {

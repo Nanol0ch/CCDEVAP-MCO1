@@ -7,15 +7,23 @@ $(document).ready(function() {
     var dateParam = urlParams.get("date");
 
     if (originParam) {
-        $("#origin").val(originParam);
+        var originCode = originParam.match(/\(([^)]+)\)/);
+        if (originCode) {
+            $("#origin").val(originCode[1]);
+        }
     }
+
     if (destParam) {
-        $("#destination").val(destParam);
+        var destCode = destParam.match(/\(([^)]+)\)/);
+        if (destCode) {
+            $("#destination").val(destCode[1]);
+        }
     }
+
     if (dateParam) {
         $("#departureDate").val(dateParam);
     }
-
+    
     // Trip Type Toggle
     $("#oneWayBtn").click(function() {
         $("#returnDateSection").hide();

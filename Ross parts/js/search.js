@@ -5,6 +5,11 @@ $(document).ready(function() {
     var originParam = urlParams.get("origin");
     var destParam = urlParams.get("destination");
     var dateParam = urlParams.get("date");
+    var returnParam = urlParams.get("returnDate");
+   
+    if (returnParam) {
+        $("#returnDate").val(returnParam);
+    }
 
     if (originParam) {
         var originCode = originParam.match(/\(([^)]+)\)/);

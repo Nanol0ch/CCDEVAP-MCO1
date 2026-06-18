@@ -12,6 +12,12 @@ $(document).ready(function() {
         $("#returnDateSection").show();
     }
 
+    var tripType = urlParams.get("tripType");
+
+    if (tripType == "oneway") {
+        $("#returnDateSection").hide();
+    }
+
     if (originParam) {
         var originCode = originParam.match(/\(([^)]+)\)/);
         if (originCode) {

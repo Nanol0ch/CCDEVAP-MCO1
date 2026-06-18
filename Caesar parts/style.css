@@ -39,13 +39,15 @@
 
 /* Destination cards image placeholder */
 .dest-thumb {
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  background-color: #e9ecef;
-  border-radius: 0.375rem 0.375rem 0 0;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.dest-thumb img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    display: block;
 }
 
 /* Promo carousel slides */

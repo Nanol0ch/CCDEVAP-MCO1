@@ -407,11 +407,14 @@ $(document).ready(function() {
 
         $("#modalBody").html(details);
 
+        // This targets the Book button inside the modal and changes its URL 
+        // to match the exact flight the user is currently viewing.
+        $("#flightDetailsModal .modal-footer .btn-primary").attr("href", "booking.html?flightId=" + flight.id);
+
         var modal = new bootstrap.Modal(document.getElementById("flightDetailsModal"));
         modal.show();
 
     });
-
     // Clear Filters
     $("#clearFiltersBtn, #resetFiltersBtn").click(function() {
         $(".filter-price, .filter-stops, .filter-schedule, .filter-airline").prop("checked", false);

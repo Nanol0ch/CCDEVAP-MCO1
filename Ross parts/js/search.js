@@ -463,10 +463,10 @@ function renderFlights(flightList) {
 
 // Airline Logo Helper
 function getAirlineLogo(airline) {
-    if (airline == "Philippine Airlines") return "img/pal.png";
-    if (airline == "Cebu Pacific") return "img/cebupacific.png";
-    if (airline == "AirAsia") return "img/airasia.png";
-    if (airline == "Qatar Airways") return "img/qatar.png";
-    if (airline == "Emirates") return "img/emirates.png";
+    if (airline == "Philippine Airlines") return "img/pal.jpg";
+    if (airline == "Cebu Pacific") return "img/cebupacific.jpg";
+    if (airline == "AirAsia") return "img/airasia.jpg";
+    if (airline == "Qatar Airways") return "img/qatar.jpg";
+    if (airline == "Emirates") return "img/emirates.jpg";
     return "img/default.png";
 }

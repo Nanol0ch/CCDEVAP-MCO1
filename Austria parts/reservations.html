@@ -4,21 +4,56 @@
     <meta charset="UTF-8">
     <title>AirRoute - My Reservations</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
     
+<!-- Navbar from roshni -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">AirRoute</a>
-            <div class="collapse navbar-collapse">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> AirRoute </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.html">Search Flights</a></li>
-                    <li class="nav-item"><a class="nav-link" href="booking.html">Book Flight</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="reservations.html">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html">User Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Admin Panel</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html"> Search Flights </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html"> Book Flight </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="reservations.html"> My Reservations </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"> User Profile </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Admin Panel </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="admin-dashboard.html"> Dashboard </a></li>
+                            <li><a class="dropdown-item" href="admin-flights.html"> Flight Management </a></li>
+                            <li><a class="dropdown-item" href="admin-users.html"> User Management </a></li>
+                            <li><a class="dropdown-item" href="admin-reservations.html"> Reservations </a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- User Dropdown -->
+                <ul class="navbar-nav ms-auto me-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Roshni </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li> <a class="dropdown-item" href="profile.html"> Profile </a> </li>
+                            <li> <a class="dropdown-item" href="#"> Settings </a> </li>
+                            <li> <hr class="dropdown-divider"> </li>
+                            <li> <a class="dropdown-item" href="#"> Logout </a> </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -26,13 +61,11 @@
 
     <!-- Page Title -->
 <div class="bg-primary text-white py-4" style="padding-left: 50px; padding-right: 50px;">
-    <h2> Find Your Flight </h2>
-    <p class="mb-0"> Search across top airlines </p>
+    <h2>My Booking Reservations</h2>
 </div>
 
     <div class="container mt-4">
-        <h2>My Booking Reservations</h2>
-        <p class="text-muted">here you can check or cancel your flights</p>
+        <h2>Here you can check or cancel your flights</h2>
 
         <div class="row my-3">
             <div class="col-md-6">
@@ -116,7 +149,6 @@
     <script>
         $(document).ready(function() {
             
-            // cancel booking function
             $('.cancel-booking-btn').click(function() {
                 var bookingId = $(this).attr('data-id');
                 var askUser = confirm("Are you sure you want to cancel " + bookingId + "?");
@@ -130,7 +162,6 @@
                 }
             });
 
-            // open change seat modal
             $('.edit-seat-btn').click(function() {
                 var bookingId = $(this).attr('data-id');
                 var currentSeat = $(this).attr('data-seat');
@@ -138,12 +169,12 @@
                 $('#savedCardId').val(bookingId);
                 $('#newSeatText').val(currentSeat);
                 
-                // open the modal manually
+  
                 var myModal = new bootstrap.Modal(document.getElementById('seatModal'));
                 myModal.show();
             });
 
-            // save seat button inside modal
+
             $('#saveSeatButton').click(function() {
                 var bookingId = $('#savedCardId').val();
                 var freshSeat = $('#newSeatText').val().toUpperCase();
@@ -153,14 +184,14 @@
                     theCard.find('.seat-badge').text(freshSeat);
                     theCard.find('.edit-seat-btn').attr('data-seat', freshSeat);
                     
-                    // close modal
+
                     var openedModal = bootstrap.Modal.getInstance(document.getElementById('seatModal'));
                     openedModal.hide();
                     alert("Seat was changed!");
                 }
             });
 
-            // filter dropdown change
+
             $('#myStatusSelect').change(function() {
                 var chosenStatus = $(this).val();
                 
@@ -174,7 +205,6 @@
                 });
             });
 
-            // search input typing
             $('#myInputSearch').on('input', function() {
                 var searchVal = $(this).val().toLowerCase();
                 

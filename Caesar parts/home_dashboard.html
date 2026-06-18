@@ -474,8 +474,9 @@ function doSearch() {
     var dest = $('#destInput').val();
     var date = $('#departDate').val();
     var returnDate = $('#returnDate').val();
+    var tripType = $('#returnField').is(':visible') ? 'round' : 'oneway';
     setTimeout(function() {
-        window.location.href = 'search.html?origin=' + origin + '&destination=' + dest + '&date=' + date + '&returnDate=' + returnDate;
+        window.location.href = 'search.html?origin=' + origin + '&destination=' + dest + '&date=' + date + '&returnDate=' + returnDate + '&tripType=' + tripType;
     }, 1000);
 }
 

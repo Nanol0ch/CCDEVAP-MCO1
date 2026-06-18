@@ -175,17 +175,17 @@
             <div class="carousel-item">
                 <div class="promo-slide slide-purple">
                     <span class="badge bg-warning text-dark mb-2">Limited Seats</span>
-                    <h3 class="fw-bold">Paris from P29,999</h3>
-                    <p class="mb-3">MNL to CDG - Round trip - Business Class upgrade</p>
-                    <button class="btn btn-light btn-sm" onclick="showToast('Paris deal saved to wishlist!','success')">Save Deal</button>
+                    <h3 class="fw-bold">Sydney from P15,000</h3>
+                    <p class="mb-3">MNL to SYD - Round trip - Business Class upgrade</p>
+                    <button class="btn btn-light btn-sm" onclick="showToast('Sydney deal saved to wishlist!','success')">Save Deal</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="promo-slide slide-green">
                     <span class="badge bg-warning text-dark mb-2">Weekend Escape</span>
-                    <h3 class="fw-bold">Bali from P5,499</h3>
-                    <p class="mb-3">MNL to DPS - One way - Selected dates in July</p>
-                    <button class="btn btn-light btn-sm" onclick="showToast('Searching Bali flights...','primary')">Find Flights</button>
+                    <h3 class="fw-bold">Dubai from P18,500</h3>
+                    <p class="mb-3">MNL to DXB - One way - Selected dates in July</p>
+                    <button class="btn btn-light btn-sm" onclick="showToast('Searching DXB flights...','primary')">Find Flights</button>
                 </div>
             </div>
         </div>
@@ -233,22 +233,22 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card h-100 shadow-sm dest-card" onclick="quickFill('Manila','Paris')">
-                <div class="dest-thumb">Paris</div>
+            <div class="card h-100 shadow-sm dest-card" onclick="quickFill('Manila','Sydney')">
+                <div class="dest-thumb">Sydney</div>
                 <div class="card-body text-center">
-                    <h5 class="card-title mb-1">Paris</h5>
-                    <p class="text-muted small mb-1">MNL to CDG</p>
-                    <p class="text-primary fw-bold mb-0">from P29,999</p>
+                    <h5 class="card-title mb-1">Sydney</h5>
+                    <p class="text-muted small mb-1">MNL to SYD</p>
+                    <p class="text-primary fw-bold mb-0">from P15,000</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card h-100 shadow-sm dest-card" onclick="quickFill('Manila','Bali')">
-                <div class="dest-thumb">Bali</div>
+            <div class="card h-100 shadow-sm dest-card" onclick="quickFill('Manila','Dubai')">
+                <div class="dest-thumb">Dubai</div>
                 <div class="card-body text-center">
-                    <h5 class="card-title mb-1">Bali</h5>
-                    <p class="text-muted small mb-1">MNL to DPS</p>
-                    <p class="text-primary fw-bold mb-0">from P5,499</p>
+                    <h5 class="card-title mb-1">Dubai</h5>
+                    <p class="text-muted small mb-1">MNL to DXB</p>
+                    <p class="text-primary fw-bold mb-0">from P18,500</p>
                 </div>
             </div>
         </div>
@@ -277,7 +277,9 @@ const airports = [
     { name: 'Sydney',      code: 'SYD' },
     { name: 'Bali',        code: 'DPS' },
     { name: 'Doha',        code: 'DOH' },
-    { name: 'New York',    code: 'JFK' }
+    { name: 'New York',    code: 'JFK' },
+    { name: 'Cebu',    code: 'CEB' },
+    { name: 'Davao',    code: 'DVO' }
 ];
 
 const flights = [

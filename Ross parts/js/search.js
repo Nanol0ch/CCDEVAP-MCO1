@@ -16,6 +16,21 @@ $(document).ready(function() {
 
     if (tripType == "oneway") {
         $("#returnDateSection").hide();
+        $("#oneWayBtn").css("background-color", "#0d6efd");
+        $("#oneWayBtn").css("color", "white");
+        $("#oneWayBtn").css("border-color", "#0d6efd");
+        $("#roundTripBtn").css("background-color", "transparent");
+        $("#roundTripBtn").css("color", "#0d6efd");
+        $("#roundTripBtn").css("border-color", "#0d6efd");
+    }
+
+    if (tripType == "round") {
+        $("#roundTripBtn").css("background-color", "#0d6efd");
+        $("#roundTripBtn").css("color", "white");
+        $("#roundTripBtn").css("border-color", "#0d6efd");
+        $("#oneWayBtn").css("background-color", "transparent");
+        $("#oneWayBtn").css("color", "#0d6efd");
+        $("#oneWayBtn").css("border-color", "#0d6efd");
     }
 
     if (originParam) {

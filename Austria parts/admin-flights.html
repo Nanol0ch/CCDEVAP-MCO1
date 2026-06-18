@@ -8,9 +8,7 @@
 </head>
 <body class="bg-light">
 
-    <!-- Navbar from roshni -->
-
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid px-4">
             <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> AirRoute </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -18,21 +16,11 @@
             </button>
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link"> Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="search.html"> Search Flights </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="booking.html"> Book Flight </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="reservations.html"> My Reservations </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.html"> User Profile </a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html"> Home </a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.html"> Search Flights </a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html"> Book Flight </a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservations.html"> My Reservations </a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"> User Profile </a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"> Admin Panel </a>
                         <ul class="dropdown-menu">
@@ -43,7 +31,6 @@
                         </ul>
                     </li>
                 </ul>
-                <!-- User Dropdown -->
                 <ul class="navbar-nav ms-auto me-2">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Roshni </a>
@@ -58,12 +45,13 @@
             </div>
         </div>
     </nav>
-<div class="bg-primary text-white py-4" style="padding-left: 50px; padding-right: 50px;">
-    <h2> Flight Schedule Listing </h2>
-</div>
+
+    <div class="bg-primary text-white py-4" style="padding-left: 50px; padding-right: 50px;">
+        <h2> Flight Schedule Listing </h2>
+    </div>
+
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
-        
             <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#newFlightModalForm">+ Create New Flight Schedule</button>
         </div>
 
@@ -76,23 +64,23 @@
                     <th>Modify Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="flightTableBody">
                 <tr id="flight-row-flight1">
                     <td>Flight 1</td>
                     <td>Philippines - Japan</td>
                     <td class="rate-display-text">₱4,420</td>
                     <td>
-                        <button class="btn btn-xs btn-secondary edit-price-prompt" data-code="flight1" data-current="4500">Edit Price</button>
-                        <button class="btn btn-xs btn-danger delete-flight-row" data-code="flight1">Remove</button>
+                        <button class="btn btn-sm btn-secondary edit-price-prompt" data-code="flight1">Edit Price</button>
+                        <button class="btn btn-sm btn-danger delete-flight-row" data-code="flight1">Remove</button>
                     </td>
                 </tr>
                 <tr id="flight-row-flight2">
                     <td>Flight 2</td>
                     <td>Philippines - Korea</td>
-                    <td class="rate-display-text">₱6,6767</td>
+                    <td class="rate-display-text">₱6,767</td>
                     <td>
-                        <button class="btn btn-xs btn-secondary edit-price-prompt" data-code="flight2" data-current="5200">Edit Price</button>
-                        <button class="btn btn-xs btn-danger delete-flight-row" data-code="flight2">Remove</button>
+                        <button class="btn btn-sm btn-secondary edit-price-prompt" data-code="flight2">Edit Price</button>
+                        <button class="btn btn-sm btn-danger delete-flight-row" data-code="flight2">Remove</button>
                     </td>
                 </tr>
             </tbody>
@@ -110,18 +98,40 @@
                     <form id="dummyFlightForm">
                         <div class="mb-2">
                             <label class="small">Flight Number</label>
-                            <input type="text"required>
+                            <input type="text" id="newCode" class="form-control" required>
                         </div>
                         <div class="mb-2">
                             <label class="small">Route Destination</label>
-                            <input type="text" required>
+                            <input type="text" id="newRoute" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label class="small">Price (PHP)</label>
-                            <input type="number"required>
+                            <input type="number" id="newPrice" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-success btn-sm w-100">Save</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="priceModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Ticket Price</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editPriceCode">
+                    <div class="input-group">
+                        <span class="input-group-text">₱</span>
+                        <input type="number" id="newPriceInput" class="form-control" placeholder="Enter new price">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" id="savePriceBtn" class="btn btn-primary">Save Changes</button>
                 </div>
             </div>
         </div>
@@ -131,36 +141,52 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function() {
-
-      
             $('#dummyFlightForm').submit(function(e) {
                 e.preventDefault();
-                alert("Add to thingy");
+                const code = $('#newCode').val();
+                const route = $('#newRoute').val();
+                const price = $('#newPrice').val();
+                const id = code.replace(/\s+/g, '-').toLowerCase();
+
+                $('#flightTableBody').append(`
+                    <tr id="flight-row-${id}">
+                        <td>${code}</td>
+                        <td>${route}</td>
+                        <td class="rate-display-text">₱${parseInt(price).toLocaleString()}</td>
+                        <td>
+                            <button class="btn btn-sm btn-secondary edit-price-prompt" data-code="${id}">Edit Price</button>
+                            <button class="btn btn-sm btn-danger delete-flight-row" data-code="${id}">Remove</button>
+                        </td>
+                    </tr>
+                `);
+                
+                $('#dummyFlightForm')[0].reset();
                 bootstrap.Modal.getInstance(document.getElementById('newFlightModalForm')).hide();
             });
 
-          
-            $('.edit-price-prompt').click(function() {
-                var currentFlightCode = $(this).attr('data-code');
-                var originalPrice = $(this).attr('data-current');
-                
-                var inputUserPrompt = prompt("Change Price to");
-                
-                if (inputUserPrompt != null && inputUserPrompt != "") {
-                    $('#flight-row-' + currentFlightCode).find('.rate-display-text').text('₱' + parseInt(inputUserPrompt).toLocaleString());
-                    $(this).attr('data-current', inputUserPrompt);
+            $(document).on('click', '.edit-price-prompt', function() {
+                var code = $(this).attr('data-code');
+                $('#editPriceCode').val(code);
+                $('#newPriceInput').val('');
+                new bootstrap.Modal(document.getElementById('priceModal')).show();
+            });
+
+            $('#savePriceBtn').click(function() {
+                var code = $('#editPriceCode').val();
+                var newPrice = $('#newPriceInput').val();
+
+                if (newPrice !== "") {
+                    $('#flight-row-' + code).find('.rate-display-text').text('₱' + parseInt(newPrice).toLocaleString());
+                    bootstrap.Modal.getInstance(document.getElementById('priceModal')).hide();
                 }
             });
 
-         
-            $('.delete-flight-row').click(function() {
+            $(document).on('click', '.delete-flight-row', function() {
                 var codeId = $(this).attr('data-code');
-                var checkUserConfirm = confirm("Do you want to delete " + codeId + " from list records?");
-                if (checkUserConfirm == true) {
+                if (confirm("Do you want to delete this flight from list records?")) {
                     $('#flight-row-' + codeId).remove();
                 }
             });
-
         });
     </script>
 </body>

@@ -178,6 +178,14 @@ $(document).ready(function() {
     // Apply advanced search filters
     var filtered = flights.slice();
 
+    // Filter by origin and destination
+    var selectedOrigin = $("#origin").val();
+    var selectedDestination = $("#destination").val();
+
+    filtered = filtered.filter(function(f) {
+        return f.origin == selectedOrigin && f.destination == selectedDestination;
+    });
+
     var preferred = $("#preferredAirline").val();
     if (preferred != "") {
         filtered = filtered.filter(function(f) {

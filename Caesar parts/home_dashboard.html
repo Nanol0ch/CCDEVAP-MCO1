@@ -473,8 +473,9 @@ function doSearch() {
     var origin = $('#originInput').val();
     var dest = $('#destInput').val();
     var date = $('#departDate').val();
+    var returnDate = $('#returnDate').val();
     setTimeout(function() {
-        window.location.href = 'search.html?origin=' + origin + '&destination=' + dest + '&date=' + date;
+        window.location.href = 'search.html?origin=' + origin + '&destination=' + dest + '&date=' + date + '&returnDate=' + returnDate;
     }, 1000);
 }
 

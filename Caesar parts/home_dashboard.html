@@ -470,7 +470,12 @@ function doSearch() {
         return;
     }
     showToast('Searching flights...', 'primary');
-    setTimeout(function() { window.location.href = 'search.html'; }, 1000);
+    var origin = $('#originInput').val();
+    var dest = $('#destInput').val();
+    var date = $('#departDate').val();
+    setTimeout(function() {
+        window.location.href = 'search.html?origin=' + origin + '&destination=' + dest + '&date=' + date;
+    }, 1000);
 }
 
 (function() {

@@ -7,7 +7,7 @@ $(document).ready(function() {
     var dateParam = urlParams.get("date");
     var returnParam = urlParams.get("returnDate");
 
-    if (returnParam) {
+    if (returnParam != "" && returnParam != null) {
         $("#returnDate").val(returnParam);
         $("#returnDateSection").show();
     }

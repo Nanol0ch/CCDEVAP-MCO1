@@ -204,12 +204,20 @@
         <a href="search.html" class="btn btn-sm btn-outline-primary">View All</a>
     </div>
 
-    <div class="d-flex flex-wrap gap-2 mb-3" id="filterPills">
-        <button class="btn btn-sm btn-dark" onclick="filterFlights('all', this)">All</button>
-        <button class="btn btn-sm btn-outline-secondary" onclick="filterFlights('asia', this)">Asia</button>
-        <button class="btn btn-sm btn-outline-secondary" onclick="filterFlights('europe', this)">Europe</button>
-        <button class="btn btn-sm btn-outline-secondary" onclick="filterFlights('middle-east', this)">Middle East</button>
-        <button class="btn btn-sm btn-outline-secondary" onclick="filterFlights('direct', this)">Direct Only</button>
+    <div class="mb-3">
+        <div class="dropdown" id="destinationFilter">
+            <button class="btn btn-sm btn-dark dropdown-toggle" type="button" id="filterDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                 All Destinations
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filterDropdownBtn">
+                <li><a class="dropdown-item active" href="#" onclick="filterFlights('all', 'All Destinations'); return false;">All Destinations</a></li>
+                <li><a class="dropdown-item" href="#" onclick="filterFlights('asia', 'Asia'); return false;">Asia</a></li>
+                <li><a class="dropdown-item" href="#" onclick="filterFlights('europe', 'Europe'); return false;">Europe</a></li>
+                <li><a class="dropdown-item" href="#" onclick="filterFlights('middle-east', 'Middle East'); return false;">Middle East</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" onclick="filterFlights('direct', 'Direct Only'); return false;">Direct Only</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="row g-3 mb-5" id="flightsGrid">
@@ -357,9 +365,13 @@ function renderFlights(data) {
 
 renderFlights(flights);
 
-function filterFlights(filter, btn) {
-    $('#filterPills .btn').removeClass('btn-dark').addClass('btn-outline-secondary');
-    $(btn).removeClass('btn-outline-secondary').addClass('btn-dark');
+function filterFlights(filter, label) {
+    $('#destinationFilter .dropdown-item').removeClass('active');
+    $('#destinationFilter .dropdown-item').filter(function() {
+        return $(this).text() === label;
+    }).addClass('active');
+
+    $('#filterDropdownBtn').html('<i class="bi bi-funnel me-1"></i> ' + label);
 
     var filtered = filter === 'all'    ? flights
                  : filter === 'direct' ? flights.filter(function(f) { return f.stops === 0; })
@@ -511,24 +523,8 @@ function showToast(msg, type) {
     setTimeout(function() { $('#' + id).remove(); }, 4000);
 }
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-        if (!e.isIntersecting) return;
-        var el = e.target;
-        var target = +el.getAttribute('data-count');
-        var cur = 0;
-        var step = target / (1200 / 16);
-        var timer = setInterval(function() {
-            cur += step;
-            if (cur >= target) { cur = target; clearInterval(timer); }
-            el.textContent = Math.floor(cur).toLocaleString();
-        }, 16);
-        observer.unobserve(el);
-    });
-}, { threshold: 0.4 });
 
-document.querySelectorAll('[data-count]').forEach(function(el) { observer.observe(el); });
 </script>
 
 </body>
-</html>
+</html> 

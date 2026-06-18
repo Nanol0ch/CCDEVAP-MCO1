@@ -2,101 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Management</title>
+    <title>AirRoute Admin - Maintain Flights</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> AirRoute </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand text-warning">AirRoute Admin Center</span>
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="#"> Home </a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.html"> Search Flights </a></li>
-                    <li class="nav-item"><a class="nav-link" href="booking.html"> Book Flight </a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservations.html"> My Reservations </a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"> User Profile </a></li>
-                    <li class="nav-item"><a class="nav-link active" href="admin-dashboard.html"> Admin Panel </a></li>
-                </ul>
-                <ul class="navbar-nav ms-auto me-2">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Roshni </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li> <a class="dropdown-item" href="profile.html"> Profile </a> </li>
-                            <li> <a class="dropdown-item" href="#"> Settings </a> </li>
-                            <li> <hr class="dropdown-divider"> </li>
-                            <li> <a class="dropdown-item" href="#"> Logout </a> </li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Dashboard Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin-flights.html">Manage Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-users.html">Manage Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-reservations.html">Manage Bookings</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container mt-4">
-        <div class="row mb-3 align-items-center">
-            <div class="col-12">
-                <h2>Flight Management</h2>
-            </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>Flight Schedule System Listing</h4>
+            <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#newFlightModalForm">+ Create New Flight Schedule</button>
         </div>
 
-        <div class="card p-3 mb-4 shadow-sm">
-            <div class="row g-3">
-                <div class="col-md-8">
-                    <input type="text" class="form-control" placeholder="Search by flight number, origin, or destination...">
-                </div>
-                <div class="col-md-4">
-                    <select class="form-select">
-                        <option>Filter by Status (All)</option>
-                        <option>On Time</option>
-                        <option>Delayed</option>
-                        <option>Cancelled</option>
-                    </select>
-                </div>
-            </div>
-        </div>
+        <table class="table table-bordered table-hover bg-white text-center shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Flight Identifier Code</th>
+                    <th>Route Direction</th>
+                    <th>Baseline Price Rate</th>
+                    <th>Modify Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="flight-row-flight1">
+                    <td>Flight 1</td>
+                    <td>Philippines - Japan</td>
+                    <td class="rate-display-text">₱4,420</td>
+                    <td>
+                        <button class="btn btn-xs btn-secondary edit-price-prompt" data-code="flight1" data-current="4500">Edit Price</button>
+                        <button class="btn btn-xs btn-danger delete-flight-row" data-code="flight1">Remove</button>
+                    </td>
+                </tr>
+                <tr id="flight-row-flight2">
+                    <td>Flight 2</td>
+                    <td>Philippines - Korea</td>
+                    <td class="rate-display-text">₱6,6767</td>
+                    <td>
+                        <button class="btn btn-xs btn-secondary edit-price-prompt" data-code="flight2" data-current="5200">Edit Price</button>
+                        <button class="btn btn-xs btn-danger delete-flight-row" data-code="flight2">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <div class="card shadow-sm overflow-hidden">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Flight</th>
-                            <th>Route</th>
-                            <th>Departure Time</th>
-                            <th>Status</th>
-                            <th>Capacity</th>
-                            <th class="text-end">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>testflight</strong></td>
-                            <td>Philippines -> Japan</td>
-                            <td>June 24, 08:30 AM</td>
-                            <td>On Time</span></td>
-                            <td>69 / 180 Seats</td>
-                            <td class="text-end">
-                                <button class="btn btn-sm btn-outline-secondary me-1">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="modal fade" id="newFlightModalForm" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Flight</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dummyFlightForm">
+                        <div class="mb-2">
+                            <label class="small">Flight Number</label>
+                            <input type="text"required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="small">Route Destination</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="small">Price (PHP)</label>
+                            <input type="number"required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-sm w-100">Save</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // add dummy form submit simulator logic box
+            $('#dummyFlightForm').submit(function(e) {
+                e.preventDefault();
+                alert("Add to thingy");
+                bootstrap.Modal.getInstance(document.getElementById('newFlightModalForm')).hide();
+            });
+
+            // use standard javascript prompt box for super easy amateur style editing
+            $('.edit-price-prompt').click(function() {
+                var currentFlightCode = $(this).attr('data-code');
+                var originalPrice = $(this).attr('data-current');
+                
+                var inputUserPrompt = prompt("Change Price to");
+                
+                if (inputUserPrompt != null && inputUserPrompt != "") {
+                    $('#flight-row-' + currentFlightCode).find('.rate-display-text').text('₱' + parseInt(inputUserPrompt).toLocaleString());
+                    $(this).attr('data-current', inputUserPrompt);
+                }
+            });
+
+            // delete row action code listener
+            $('.delete-flight-row').click(function() {
+                var codeId = $(this).attr('data-code');
+                var checkUserConfirm = confirm("Do you want to delete " + codeId + " from list records?");
+                if (checkUserConfirm == true) {
+                    $('#flight-row-' + codeId).remove();
+                }
+            });
+
+        });
+    </script>
 </body>
 </html>

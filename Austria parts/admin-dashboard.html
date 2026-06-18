@@ -2,57 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>AirRoute Admin - Home Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#"> <i class="bi bi-airplane-fill"></i> AirRoute </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand text-warning">AirRoute Admin Center</span>
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="#"> Home </a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.html"> Search Flights </a></li>
-                    <li class="nav-item"><a class="nav-link" href="booking.html"> Book Flight </a></li>
-                    <li class="nav-item"><a class="nav-link" href="reservations.html"> My Reservations </a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"> User Profile </a></li>
-                    <li class="nav-item"><a class="nav-link active" href="admin-dashboard.html"> Admin Panel </a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin-dashboard.html">Dashboard Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-flights.html">Manage Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-users.html">Manage Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-reservations.html">Manage Bookings</a></li>
                 </ul>
-                <ul class="navbar-nav ms-auto me-2">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Roshni </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li> <a class="dropdown-item" href="profile.html"> Profile </a> </li>
-                            <li> <a class="dropdown-item" href="#"> Settings </a> </li>
-                            <li> <hr class="dropdown-divider"> </li>
-                            <li> <a class="dropdown-item" href="#"> Logout </a> </li>
-                        </ul>
-                    </li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white-50" href="index.html">Exit Admin Portal</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container mt-4">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Admin Panel: Dashboard Analytics</h2>
-        </div>
-
-        <div class="row g-4 mb-4">
-            <div class="col-md-3">
-                <div class="card p-3 shadow-sm border-0 bg-white">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted mb-1">Total Bookings</h6>
-                            <h3 class="mb-0">1,000</h3>
-                        </div>
+        <h3>System Statistics Overview Dashboard</h3>
+        
+        <div class="row text-center my-4">
+            <div class="col-md-4 mb-2">
+                <div class="p-3 bg-primary text-white rounded shadow-sm">
+                    <h3>1,450</h3>
+                    <p class="mb-0">Total Bookings Made</p>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class
+            <div class="col-md-4 mb-2">
+                <div class="p-3 bg-success text-white rounded shadow-sm">
+                    <h3>₱185,200</h3>
+                    <p class="mb-0">Profit</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="p-3 bg-dark text-white rounded shadow-sm">
+                    <h3>Philippines - Japan</h3>
+                    <p class="mb-0">Most Popular Flight</p>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="mt-4 mb-2">Shortcut Administration Controls</h4>
+        <div class="row">
+            <div class="col-md-4 mb-2">
+                <div class="card p-3">
+                    <h6>Flight List Schedules</h6>
+                    <p class="text-muted small">Edit Flights.</p>
+                    <a href="admin-flights.html" class="btn btn-sm btn-outline-primary w-100">Go to Flights Manager</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="card p-3">
+                    <h6>User Access Profiles</h6>
+                    <p class="text-muted small">Edit users.</p>
+                    <a href="admin-users.html" class="btn btn-sm btn-outline-primary w-100">Go to Users Manager</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="card p-3">
+                    <h6>Reservations</h6>
+                    <p class="text-muted small">Edit reservations.</p>
+                    <a href="admin-reservations.html" class="btn btn-sm btn-outline-primary w-100">Go to Bookings Manager</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

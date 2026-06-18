@@ -440,7 +440,7 @@ function renderFlights(flightList) {
             "<p> Duration: " + flight.duration + " | Stops: " + flight.stops + "</p>" +
             "<p> Price: ₱" + flight.price + " | Seats: " + flight.seats + "</p>" +
             "<button class='btn btn-primary viewDetailsBtn' data-id='" + flight.id + "'> View Details </button>" +
-            "<a href='booking.html' class='btn btn-outline-primary'> Book </a>" +
+            "<a href='booking.html?flightId=" + flight.id + "' class='btn btn-outline-primary'> Book </a>" +
             "</div>" +
             "</div>";
 

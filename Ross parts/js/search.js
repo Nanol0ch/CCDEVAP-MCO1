@@ -6,9 +6,10 @@ $(document).ready(function() {
     var destParam = urlParams.get("destination");
     var dateParam = urlParams.get("date");
     var returnParam = urlParams.get("returnDate");
-   
+
     if (returnParam) {
         $("#returnDate").val(returnParam);
+        $("#returnDateSection").show();
     }
 
     if (originParam) {
